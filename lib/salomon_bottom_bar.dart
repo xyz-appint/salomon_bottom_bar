@@ -56,11 +56,13 @@ class SalomonBottomBar extends StatelessWidget {
   /// The transition curve
   final Curve curve;
 
+  
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return ColoredBox(
+    return Container(
       color: backgroundColor ?? Colors.transparent,
       child: SafeArea(
         minimum: margin,

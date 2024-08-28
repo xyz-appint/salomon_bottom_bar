@@ -22,12 +22,29 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.white,
       ),
       home: Scaffold(
+        extendBody: true,
         appBar: AppBar(
           title: Text(MyApp.title),
         ),
+        body: ListView.builder(
+          itemCount: 1000, // A large number for a fake long list
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text('Item $index'),
+              subtitle: Text('This is a fake long list item'),
+              leading: Icon(Icons.star),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                // Add onTap functionality if needed
+              },
+            );
+          },
+        ),
         bottomNavigationBar: SalomonBottomBar(
+          backgroundColor: Colors.grey[800]!.withOpacity(0.1),
           currentIndex: _currentIndex,
           onTap: (i) => setState(() => _currentIndex = i),
           items: [
